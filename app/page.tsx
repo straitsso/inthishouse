@@ -10,6 +10,7 @@ const MAX_W = 1060;
 const GAP = 6;
 const LINE_HEIGHT = 1.05;
 const BG = "#262424";
+const LOGO = [["I", "#E9E27C"], ["T", "#9CC9EC"], ["H", "#E2546B"], ["W", "#F0A35E"], ["B", "#8FD18A"]];
 
 type View = "sign" | ProductKey;
 const VIEWS: { key: View; label: string }[] = [
@@ -204,6 +205,17 @@ export default function Page() {
 
   return (
     <main className="mx-auto grid max-w-7xl gap-8 p-6 md:grid-cols-2 md:items-start">
+      <h1
+        aria-label="In This House We Believe"
+        className="order-first col-span-full text-4xl tracking-[0.12em]"
+        style={{ fontFamily: '"Archivo Black"' }}
+      >
+        {LOGO.map(([letter, color]) => (
+          <span key={letter} style={{ color }} aria-hidden>
+            {letter}
+          </span>
+        ))}
+      </h1>
       <div className="flex flex-col gap-3">
         {LINES.map((l, i) => (
           <input
